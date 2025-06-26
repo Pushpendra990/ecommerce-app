@@ -9,8 +9,7 @@ exports.register = async (req, res) => {
 
   const user = await User.create(req.body);
   user.dataValues.token = generateToken(user.id);
-  console.log("======user", user)
-  res.status(201).json(user);
+  res.status(201).json({ success: true, user });
 };
 
 exports.login = async (req, res) => {
